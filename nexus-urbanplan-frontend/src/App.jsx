@@ -5,6 +5,17 @@ import Contact from "./pages/Contact"
 import Monitoramento from "./pages/Monitoramento"
 import Reports from "./pages/Reports"
 import SugestoesIA from "./pages/SugestoesIA"
+import Login from "./pages/Login"
+import Register from "./pages/Register"
+import Dashboard from "./pages/Dashboard"
+
+const isAuthenticated = () => {
+  return localStorage.getItem("token") !== null;
+};
+
+function PrivateRoute({ children }) {
+  return isAuthenticated() ? children : <Navigate to="/login" />;
+}
 
 // Navbar simples para navegar entre páginas
 function Navbar() {
@@ -20,6 +31,10 @@ function Navbar() {
         <Link to="/monitoramento" className="hover:text-blue-600">Monitoramento</Link>
         <Link to="/reports" className="hover:text-blue-600">Reports</Link>
         <Link to="/sugestoes-ia" className="hover:text-blue-600">Sugestões IA</Link>
+	<Link to="/login"
+              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+            >Login
+            </Link>
       </div>
     </nav>
   )
@@ -35,9 +50,19 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/monitoramento" element={<Monitoramento />} />
-          <Route path="/reports" element={<Reports />} />
-          <Route path="/sugestoes-ia" element={<SugestoesIA />} />
+          <Route path="/monitoramento" element={<PrivateRoute><Monitoramento /></PrivateRoute>} />
+          <Route path="/reports" element={<PrivateRoute><Reports /></PrivateRoute>} />
+          <Route path="/sugestoes-ia" element={<PrivateRoute><SugestoesIA /></PrivateRoute>} />
+	  <Route path="/login" element={<Login />} />
+	  <Route path="/register" element={<Register />} />
+	  <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
         </Routes>
       </div>
     </Router>

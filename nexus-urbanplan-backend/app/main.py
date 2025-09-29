@@ -4,12 +4,14 @@ from sqlalchemy.orm import Session
 from app.database import SessionLocal, engine, Base
 from app import models, schemas
 from app.routes import reports
+from app.routes import users
 
 # cria as tabelas no banco
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+app.include_router(users.router)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # ou ["http://localhost:5173"] se quiser restringir só pro frontend
