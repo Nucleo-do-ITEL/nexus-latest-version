@@ -1,4 +1,11 @@
+earthengine-api
+geemap
+folium
+pandas
+numpy
+scikit-learn
+torch
+matplotlib
 fastapi
 uvicorn
-sqlalchemy
-pydantic
+
