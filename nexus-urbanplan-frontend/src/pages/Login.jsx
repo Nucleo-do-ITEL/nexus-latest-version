@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-function Login() {
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -9,10 +9,13 @@ function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // simulação de login - depois chamamos backend
-    if (email && password) {
+    // 🔒 Simulação de login - aqui depois vai entrar a chamada ao backend
+    if (email.trim() && password.trim()) {
+      // Salva um token fake para simular usuário autenticado
       localStorage.setItem("token", "fake-jwt-token");
-      navigate("/dashboard"); // redireciona para a dashboard
+
+      // Redireciona automaticamente para o Dashboard
+      navigate("/dashboard");
     } else {
       alert("Preencha os campos corretamente!");
     }
@@ -61,5 +64,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;

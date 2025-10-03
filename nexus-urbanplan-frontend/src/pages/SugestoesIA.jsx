@@ -99,5 +99,5 @@ export default function SugestoesIA() {
         </div>
       </div>
     </div>
-  );
+  )
 }
