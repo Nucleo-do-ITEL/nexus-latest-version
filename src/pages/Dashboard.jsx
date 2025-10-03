@@ -5,9 +5,12 @@ import sugestionsImg from "../sugestions.png";
 
 export default function Dashboard() {
   return (
-    <div className="flex flex-col gap-6 p-6">
+    <>
+    {/* Card Monitoramento */}
+    <img src={avatarImg} alt="Avatar"/>
+    <div className="flex gap-6 p-6">
       {/* Card Monitoramento */}
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 border rounded-xl shadow p-6 bg-white hover:animate-breathe-float">
+      <div className="items-center gap-6 border rounded-xl shadow p-6 bg-white hover:animate-breathe-float">
         <div className="flex flex-col gap-4">
           <h2 className="text-xl font-bold text-blue-700">Monitoramento</h2>
           <p className="text-gray-600">
@@ -21,15 +24,10 @@ export default function Dashboard() {
             Ir para Monitoramento
           </Link>
         </div>
-        <img
-          src={avatarImg}
-          alt="Monitoramento"
-          className="w-[500px] rounded-xl shadow mx-auto"
-        />
       </div>
 
       {/* Card Reports */}
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 border rounded-xl shadow p-6 bg-white hover:animate-breathe-float">
+      <div className="items-center gap-6 border rounded-xl shadow p-6 bg-white hover:animate-breathe-float">
         <div className="flex flex-col gap-4">
           <h2 className="text-xl font-bold text-blue-700">Reports</h2>
           <p className="text-gray-600">
@@ -43,15 +41,10 @@ export default function Dashboard() {
             Ir para Reports
           </Link>
         </div>
-        <img
-          src={reportsImg}
-          alt="Reports"
-          className="w-[500px] rounded-xl shadow mx-auto"
-        />
       </div>
 
       {/* Card Sugestões IA */}
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 border rounded-xl shadow p-6 bg-white hover:animate-breathe-float">
+      <div className="items-center border rounded-xl shadow p-6 bg-white hover:animate-breathe-float">
         <div className="flex flex-col gap-4">
           <h2 className="text-xl font-bold text-blue-700">Sugestões de IA</h2>
           <p className="text-gray-600">
@@ -65,12 +58,7 @@ export default function Dashboard() {
             Ir para Sugestões de IA
           </Link>
         </div>
-        <img
-          src={sugestionsImg}
-          alt="Sugestões de IA"
-          className="w-[500px] rounded-xl shadow mx-auto"
-        />
       </div>
-    </div>
+    </div></>
   );
 }
