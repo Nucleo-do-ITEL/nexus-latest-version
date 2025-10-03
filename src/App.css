@@ -1,0 +1,19 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@keyframes breatheFloat {
+  0%, 100% { 
+    transform: translateY(-4px) scale(1); 
+    box-shadow: 0 15px 35px -8px rgba(0, 0, 0, 0.1);
+  }
+  50% { 
+    transform: translateY(-8px) scale(1.01); 
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.hover\:animate-breathe-float:hover {
+  animation: breatheFloat .85s ease-in-out ;
+}
